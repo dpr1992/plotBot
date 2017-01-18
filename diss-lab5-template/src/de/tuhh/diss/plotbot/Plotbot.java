@@ -23,7 +23,7 @@ public class Plotbot {
 		while(Motor.A.isMoving() || Motor.B.isMoving() || Motor.C.isMoving()){
 			
 		}
-		
+		//Motor.A.backward();
 		
 	}
 	

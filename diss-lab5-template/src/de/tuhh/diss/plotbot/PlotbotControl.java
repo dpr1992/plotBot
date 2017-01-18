@@ -19,7 +19,7 @@ public class PlotbotControl {
 		TouchSensor penTouch = new TouchSensor(SensorPort.S1);
 		private int maxArmAngle;
 		private int maxPenAngle;
-	public void lightSensorCalibration(){
+	public void lightSensorCalibration(){         //lightsensor calibration
 		Motor.C.setSpeed(200);
 		Motor.C.backward();
 		for(int i=0;i<1000;i++){

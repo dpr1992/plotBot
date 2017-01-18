@@ -35,7 +35,7 @@ public class PlotbotControl {
 		}
 		Motor.C.stop();
 	}
-	public void armSensorCalibration(){
+	public void armSensorCalibration(){    //armsensor calibration
 		Motor.A.setSpeed(200);
 		Motor.A.forward();
 		Motor.A.resetTachoCount();
@@ -46,7 +46,7 @@ public class PlotbotControl {
         Motor.A.rotate(maxArmAngle,true);
 		
 	}
-	public void penSensorCalibration(){
+	public void penSensorCalibration(){             //pensensor calibration logic
 		Motor.B.setSpeed(200);
 		Motor.B.forward();
 		Motor.B.resetTachoCount();

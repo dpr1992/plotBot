@@ -27,14 +27,11 @@ public class Plotbot {
 		while(Motor.A.isMoving() || Motor.B.isMoving() || Motor.C.isMoving()){
 			
 		}
-<<<<<<< HEAD
-		
-		
-=======
+
 		//
 		//Motor.A.backward();
 		//Motor.B.backward();
->>>>>>> refs/remotes/origin/master
+
 		
 	}
 	

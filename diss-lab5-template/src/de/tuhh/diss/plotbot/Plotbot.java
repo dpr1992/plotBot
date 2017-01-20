@@ -20,9 +20,9 @@ public class Plotbot {
 //		controlBot.penSensorCalibration();
 //		controlBot.armSensorCalibration();
 //		controlBot.lightSensorCalibration();
-		Motor.A.setSpeed(378);
+		//Motor.A.setSpeed(378);
 		//Motor.C.setSpeed(30);
-		Motor.A.rotate(7560, true);
+		//Motor.A.rotate(7560, true);
 		//Motor.C.rotate(-6000, true);
 		while(Motor.A.isMoving() || Motor.B.isMoving() || Motor.C.isMoving()){
 			

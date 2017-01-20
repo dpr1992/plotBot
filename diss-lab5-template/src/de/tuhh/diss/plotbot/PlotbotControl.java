@@ -14,19 +14,19 @@ import lejos.nxt.TouchSensor;
  * method plot of the selected shape.
  */
 public class PlotbotControl {
-		LightSensor Light = new LightSensor(SensorPort.S3);
-		TouchSensor armTouch = new TouchSensor(SensorPort.S1);
-		TouchSensor penTouch = new TouchSensor(SensorPort.S1);
-		private int maxArmAngle;
-		private int maxPenAngle;
+	LightSensor Light = new LightSensor(SensorPort.S3);
+	TouchSensor armTouch = new TouchSensor(SensorPort.S1);
+	TouchSensor penTouch = new TouchSensor(SensorPort.S2);
+	private int maxArmAngle;
+	private int maxPenAngle;
 	public void lightSensorCalibration(){         //lightsensor calibration
 		Motor.C.setSpeed(200);
 		Motor.C.backward();
 		for(int i=0;i<1000;i++){
-			
+
 		}
 		while(Motor.C.isMoving()){
-			if(Light.getNormalizedLightValue()>520){
+			if(Light.getNormalizedLightValue()>600){
 				LCD.drawInt(Light.getNormalizedLightValue(), 0, 5);
 			}
 			else{
@@ -37,31 +37,34 @@ public class PlotbotControl {
 	}
 	public void armSensorCalibration(){    //armsensor calibration
 		Motor.A.setSpeed(200);
-		Motor.A.forward();
 		Motor.A.resetTachoCount();
-		while(!armTouch.isPressed()){
-			Motor.A.stop();
+		Motor.A.backward();
+		while(Motor.A.isMoving()){
+			if(armTouch.isPressed()){
+				Motor.A.stop();
+			}
 		}
-        maxArmAngle = Motor.A.getTachoCount();
-        Motor.A.rotate(maxArmAngle,true);
-		
+		maxArmAngle = Motor.A.getTachoCount();
+		Motor.A.rotate(4200,true);
 	}
 	public void penSensorCalibration(){             //pensensor calibration logic
-		Motor.B.setSpeed(200);
-		Motor.B.forward();
+		Motor.B.setSpeed(100);
 		Motor.B.resetTachoCount();
-		while(!penTouch.isPressed()){
-			Motor.A.stop();
+		Motor.B.forward();
+		while(Motor.B.isMoving()){
+			if(penTouch.isPressed()){
+				Motor.B.stop();
+			}
 		}
-        maxPenAngle = Motor.A.getTachoCount();
-        Motor.B.rotate(maxPenAngle,true);
-		
+		maxPenAngle = Motor.B.getTachoCount();
+		//Motor.B.rotate(-maxPenAngle,true);
+
 	}
-	
+
 	public void delay(int value) {              // delay logic
 		for(int i=0;i<value;i++){
-			
+
 		}
 	}
-	
+
 }

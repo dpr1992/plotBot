@@ -31,6 +31,8 @@ public class Plotbot {
 		//
 		//Motor.A.backward();
 		//Motor.B.backward();
+		
+		//Motor.A.stop();
 
 		
 	}

@@ -1,5 +1,5 @@
 package de.tuhh.diss.plotbot;
-
+/*coordinate class*/
 public class Coord {
 	public double X;
 	public double Y;
